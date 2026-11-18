@@ -1,166 +1,152 @@
-<?php
-require_once "config/conexion.php";
-echo "Conexion exitosa con la DB";
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LabReport | Inicio</title>
-    <link rel="stylesheet" href="css/estilo.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <title>Sistema de Préstamo de Equipos</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        body {
+            background: #eef2f7;
+            min-height: 100vh;
+        }
+
+        .contenedor-login {
+            max-width: 430px;
+            width: 100%;
+        }
+
+        .encabezado {
+            background: #173b63;
+            color: white;
+            padding: 25px;
+            border-radius: 12px 12px 0 0;
+            text-align: center;
+        }
+
+        .icono {
+            font-size: 45px;
+        }
+
+        .formulario {
+            background: white;
+            padding: 30px;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .btn-ingresar {
+            background: #173b63;
+            color: white;
+            width: 100%;
+            padding: 11px;
+        }
+
+        .btn-ingresar:hover {
+            background: #245783;
+            color: white;
+        }
+    </style>
+
 </head>
 
 <body>
-    <!-- HEADER + NAV-->
-    <header>
-        <nav class="navbar bg-dark navbar-dark">
-            <div class="container-fluid">
-                <div>
-                <img src="img/editar.png" alt="" class="img-logo">
-                <a href="index.php" class="navbar-brand logo">
-                    LabReport
-                </a>
+
+    <main class="container min-vh-100 d-flex justify-content-center align-items-center">
+
+        <div class="contenedor-login shadow">
+
+            <!-- ENCABEZADO -->
+            <div class="encabezado">
+
+                <div class="icono">
+                    <i class="bi bi-pc-display"></i>
                 </div>
 
-                <span class="navbar-text text-white">
-                    Laboratorio de computo
-                </span>
+                <h1 class="h3 fw-bold">
+                    Préstamo de Equipos
+                </h1>
+
+                <p class="mb-0">
+                    Sistema de Gestión de Equipos Tecnológicos
+                </p>
+
             </div>
 
-        </nav>
-    </header>
-    <div class="container-fluid">
-        <div class="row">
-            <aside class="col-md-3 col-lg-2 sidebar p-3">
-                <h6 class="text-secondary mb-3">
-                    MENU
-                </h6>
-                <a href="index.php" class="activo">Inicio</a>
-                <a href="reporte.php">Reportar falla</a>
-                <a href="reportes.php"> Consultar reportes</a>
-                <a href="nuevo_equipo.php"> Nuevo equipo</a>
-                <a href="equipos.php"> Equipos</a>
+            <!-- FORMULARIO -->
+            <div class="formulario">
 
-            </aside>
-            <main class="col-md-9 col-lg-|0 contenido">
-                <header class="md-4">
-                    <h1 class="h3">Panel principal</h1>
-                    <p class="text-secondary">
-                        Resumen de incidencias del laboratorio
-                    </p>
-                </header>
+                <h2 class="h4 text-center mb-2">
+                    Iniciar sesión
+                </h2>
 
-                <!--SECTION 1-->
+                <p class="text-secondary text-center mb-4">
+                    Ingresa tus datos para continuar
+                </p>
 
-                <section class="mb-4">
-                    <div class="row g-3">
+                <form action="validar_login.php" method="POST">
 
+                    <!-- CORREO -->
+                    <div class="mb-3">
 
-                       
-                        <article class="col-md-4">
-                            <div class="card shadow-sm tarjeta-resumen">
-                                <div class="card-body">
-                                    <p class="text-secondary">
-                                        Reportadas
-                                    </p>
-                                    <p class="numero">
-                                        8
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                                   
-                        <article class="col-md-4">
-                            <div class="card shadow-sm tarjeta-resumen">
-                                <div class="card-body">
-                                    <p class="text-secondary">
-                                        En revision
-                                    </p>
-                                    <p class="numero">
-                                        3
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
+                        <label for="correo" class="form-label">
+                            Correo electrónico
+                        </label>
 
-                        <article class="col-md-4">
-                            <div class="card shadow-sm tarjeta-resumen">
-                                <div class="card-body">
-                                    <p class="text-secondary">
-                                        Resueltas
-                                    </p>
-                                    <p class="numero">
-                                        15
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="correo"
+                            name="correo"
+                            placeholder="Ingresa tu correo"
+                            required
+                        >
+
                     </div>
-                </section>
 
-                <!--SECTION 2-->
-                <SECTION>
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body">
-                            <h2 class="h5 mb-3">
-                                Reportes recientes
-                            </h2>
+                    <!-- CONTRASEÑA -->
+                    <div class="mb-4">
 
-                            <div class="table-responsive">
-                                <table class="table table-hover align-middle">
-                                    <thead>
-                                        <tr>
-                                            <th>Equipo</th>
-                                            <th>Falla</th>
-                                            <th>Estado</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>PC-03</td>
-                                            <TD>No enciende</TD>
-                                            <td>
-                                                <span class="badge text-bg-danger">Reportada
+                        <label for="contrasena" class="form-label">
+                            Contraseña
+                        </label>
 
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>PC-08</td>
-                                            <td>Sin internet</td>
-                                            <td>
-                                                <span class="badge text-bg-warning">En revision
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="contrasena"
+                            name="contrasena"
+                            placeholder="Ingresa tu contraseña"
+                            required
+                        >
 
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>PC-12</td>
-                                            <td>Falla monitor</td>
-                                            <td>
-                                                <span class="badge text-bg-success">Resuelto
-
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
                     </div>
-                </SECTION>
-            </main>
+
+                    <!-- BOTON -->
+                    <button type="submit" class="btn btn-ingresar">
+                        Iniciar sesión
+                    </button>
+
+                </form>
+
+                <hr class="my-4">
+
+                <p class="text-center text-secondary small mb-0">
+                    Sistema de Préstamo de Equipos Tecnológicos
+                </p>
+
+            </div>
+
         </div>
-    </div>
 
-    <footer class="text-center py-3 bg-white border-top">
-        CECyTEC Plantel Pomuch | Tecnico en Programacion
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </main>
+
 </body>
-
 </html>
