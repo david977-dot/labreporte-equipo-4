@@ -1,0 +1,56 @@
+body {
+background-color: #dbe0e9;
+}
+
+.logo {
+font-weight: 700;
+letter-spacing: 0.5px;
+}
+
+.sidebar {
+min-height: calc(100vh - 50px);
+background-color: #d3a8a8;
+border-right: 1px solid #bbb584;
+}
+
+.sidebar a {
+display: block;
+padding: 12px 10px;
+color: #0b0f0f;
+text-decoration: none;
+border-radius: 8px;
+margin-bottom: 4px;
+}
+
+.sidebar a:hover {
+background-color: #678ebd;
+}
+
+.sidebar a.activo {
+background-color: #606463;
+color: #000000;
+font-weight: 600;
+}
+
+.contenido {
+padding: 30px;
+}
+
+.tarjeta-resumen {
+border: none;
+border-radius: 14px;
+}
+
+.numero {
+font-size: 2rem;
+font-weight: 700;
+}
+
+footer {
+font-size: 0.85rem;
+}
+
+.img-logo {
+width: 32px;
+height: 32px;
+}

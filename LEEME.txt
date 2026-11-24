@@ -1,0 +1,33 @@
+SISTEMA DE PRÉSTAMO DE EQUIPO TECNOLÓGICO
+Proyecto basado en las 8 pantallas del wireframe del Equipo 4.
+
+REQUISITOS
+- XAMPP (Apache y MySQL)
+- PHP 7.4 o superior
+- MySQL/MariaDB
+
+INSTALACIÓN
+1. Copia la carpeta sistema_prestamo_equipo dentro de:
+   C:\xampp\htdocs\
+2. Abre XAMPP e inicia Apache y MySQL.
+3. Entra a http://localhost/phpmyadmin
+4. Importa el archivo base_datos.sql.
+5. Si tu usuario o contraseña de MySQL son diferentes, modifica config.php.
+6. Abre:
+   http://localhost/sistema_prestamo_equipo/
+
+PANTALLAS
+1. index.php - Inicio / menú
+2. equipos.php - Registrar equipo
+3. disponibilidad.php - Consultar disponibilidad
+4. prestamo_nuevo.php - Registrar préstamo
+5. prestamos.php - Consultar préstamos
+6. devolucion.php - Registrar devolución
+7. historial.php - Historial
+8. validaciones.php - Mensajes y validaciones
+
+NOTAS
+- El sistema impide prestar un equipo que no esté disponible.
+- Al registrar una devolución, el equipo vuelve a estar Disponible.
+- Los préstamos devueltos permanecen en el historial.
+- Los datos se guardan en MySQL.

@@ -1,0 +1,1 @@
+<?php include "config.php"; $conn->query("DELETE FROM equipos"); echo "Listo, ya no hay PCs"; ?>
